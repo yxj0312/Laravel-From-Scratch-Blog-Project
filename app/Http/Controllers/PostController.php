@@ -8,6 +8,7 @@ class PostController extends Controller
 {
     public function index()
     {
+        // Add all current query string values to the paginator, so that we have pagination with category
         return view('posts.index', [
             'posts' => Post::latest()->filter(
                         request(['search', 'category', 'author'])
