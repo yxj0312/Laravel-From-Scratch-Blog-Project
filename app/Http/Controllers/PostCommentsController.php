@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class PostCommentsController extends Controller
 {
-    //
+    public function store()
+    {
+        
+    }
 }
