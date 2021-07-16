@@ -14,7 +14,10 @@ Route::get('ping', function() {
         'server' => 'us6'
     ]);
 
-    $response = $mailchimp->ping->get();
+    $response = $mailchimp->lists->addListMember('', [
+        'email_address' => '',
+        'status' => 'subscribed'
+    ]);
     ddd($response);
 });
 
