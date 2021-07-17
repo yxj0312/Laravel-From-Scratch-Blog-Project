@@ -8,17 +8,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('ping', function() {
     $mailchimp = new \MailchimpMarketing\ApiClient();
+    // $mailchimp = new \MailchimpTransactional\ApiClient();
 
     $mailchimp->setConfig([
         'apiKey' => config('services.mailchimp.key'),
         'server' => 'us6'
     ]);
 
-    $response = $mailchimp->lists->addListMember('', [
-        'email_address' => '',
-        'status' => 'subscribed'
-    ]);
+    $response = $mailchimp->lists->getAllLists();
+    // $response = $mailchimp->lists->addListMember('', [
+    //     'email_address' => '',
+    //     'status' => 'subscribed'
+    // ]);
     ddd($response);
+
+
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
