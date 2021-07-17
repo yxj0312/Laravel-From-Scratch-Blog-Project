@@ -16,7 +16,9 @@ Route::get('ping', function() {
     ]);
 
     $response = $mailchimp->lists->getAllLists();
-    // $response = $mailchimp->lists->addListMember('', [
+
+    // 1841442fdf
+    // $response = $mailchimp->lists->addListMember('1841442fdf', [
     //     'email_address' => '',
     //     'status' => 'subscribed'
     // ]);
