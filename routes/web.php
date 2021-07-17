@@ -15,13 +15,13 @@ Route::get('ping', function() {
         'server' => 'us6'
     ]);
 
-    $response = $mailchimp->lists->getAllLists();
+    // $response = $mailchimp->lists->getAllLists();
 
     // 1841442fdf
-    // $response = $mailchimp->lists->addListMember('1841442fdf', [
-    //     'email_address' => '',
-    //     'status' => 'subscribed'
-    // ]);
+    $response = $mailchimp->lists->addListMember('1841442fdf', [
+        'email_address' => 'whasdf1@tewt.com',
+        'status' => 'subscribed'
+    ]);
     ddd($response);
 
 
