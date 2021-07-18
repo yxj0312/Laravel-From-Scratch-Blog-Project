@@ -7,6 +7,9 @@ use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('ping', function() {
+
+    request()->validate(['email' => 'required|email']);
+
     $mailchimp = new \MailchimpMarketing\ApiClient();
     // $mailchimp = new \MailchimpTransactional\ApiClient();
 
@@ -19,12 +22,12 @@ Route::get('ping', function() {
 
     // 1841442fdf
     $response = $mailchimp->lists->addListMember('1841442fdf', [
-        'email_address' => 'whasdf1@tewt.com',
+        'email_address' => request('email'),
         'status' => 'subscribed'
     ]);
     ddd($response);
 
-
+    return redirect('/')->with('success', 'You are now signed up for our newsletter!');
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
