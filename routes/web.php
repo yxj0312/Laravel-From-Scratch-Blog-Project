@@ -6,12 +6,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('ping', function() {
-
+Route::post('newsletter', function() {
     request()->validate(['email' => 'required|email']);
 
     $mailchimp = new \MailchimpMarketing\ApiClient();
-    // $mailchimp = new \MailchimpTransactional\ApiClient();
 
     $mailchimp->setConfig([
         'apiKey' => config('services.mailchimp.key'),
@@ -25,7 +23,6 @@ Route::get('ping', function() {
         'email_address' => request('email'),
         'status' => 'subscribed'
     ]);
-    ddd($response);
 
     return redirect('/')->with('success', 'You are now signed up for our newsletter!');
 });
