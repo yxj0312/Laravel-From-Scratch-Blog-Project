@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
 
 Route::post('newsletter', function() {
     request()->validate(['email' => 'required|email']);
@@ -18,11 +19,16 @@ Route::post('newsletter', function() {
 
     // $response = $mailchimp->lists->getAllLists();
 
-    // 1841442fdf
-    $response = $mailchimp->lists->addListMember('1841442fdf', [
-        'email_address' => request('email'),
-        'status' => 'subscribed'
-    ]);
+    try {
+        $response = $mailchimp->lists->addListMember('1841442fdf', [
+            'email_address' => request('email'),
+            'status' => 'subscribed'
+        ]);
+    } catch (\Throwable $th) {
+        ValidationException::withMessages([
+            'email' => 'This email could not be added to our newsletter list.'
+        ]);
+    }
 
     return redirect('/')->with('success', 'You are now signed up for our newsletter!');
 });
