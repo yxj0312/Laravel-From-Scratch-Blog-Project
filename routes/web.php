@@ -24,8 +24,8 @@ Route::post('newsletter', function() {
             'email_address' => request('email'),
             'status' => 'subscribed'
         ]);
-    } catch (\Throwable $th) {
-        ValidationException::withMessages([
+    } catch (Exception $e) {
+        throw ValidationException::withMessages([
             'email' => 'This email could not be added to our newsletter list.'
         ]);
     }
