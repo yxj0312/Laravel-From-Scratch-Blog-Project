@@ -18,9 +18,7 @@ class Newsletter
 
     protected function client()
     {
-        $mailchimp = new ApiClient();
-
-        return $mailchimp->setConfig([
+        return (new ApiClient())->setConfig([
             'apiKey' => config('services.mailchimp.key'),
             'server' => 'us6'
         ]);
