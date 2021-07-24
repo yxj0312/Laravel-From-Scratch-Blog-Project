@@ -60,3 +60,7 @@ In the case of this Newsletter dependency:
 2. If there's no Newsletter in that container, maybe we can just magically make one for it
 3. Laravel checks Newletter class, and  there's no constructor dependency， and then use new to init the Newsletter
 4. what if the dependency does have a constructor? laravel do his best to resolve the dependency for u, if he could not, throw an exception
+
+How do we put something into the services container
+
+We use AppServiceProvider as example
