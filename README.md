@@ -13,6 +13,12 @@ class NewsletterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(protected ApiClient $client, protected string $foo)
+    {
+        
+    }
+
     public function __invoke(Newsletter $newsletter)
     {
         request()->validate(['email' => 'required|email']);
@@ -83,7 +89,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // app()->get('foo') or resolve('foo') to get the value
+        // app()->get('foo') or resolve('foo') to get the value (to get foo from newsletter)
         app()->bind('foo', function() {
             return 'bar';
         })
@@ -102,3 +108,5 @@ class AppServiceProvider extends ServiceProvider
 }
 
 ```
+
+container is to store in many cases a key value pairs.
