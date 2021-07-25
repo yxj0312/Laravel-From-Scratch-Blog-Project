@@ -64,3 +64,41 @@ In the case of this Newsletter dependency:
 How do we put something into the services container
 
 We use AppServiceProvider as example
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        // app()->get('foo') or resolve('foo') to get the value
+        app()->bind('foo', function() {
+            return 'bar';
+        })
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // Paginator::useBootstrap()
+        Model::unguard();
+    }
+}
+
+```
