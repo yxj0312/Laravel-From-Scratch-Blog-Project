@@ -93,6 +93,7 @@ class AppServiceProvider extends ServiceProvider
         app()->bind('foo', function() {
             return 'bar';
         })
+
     }
 
     /**
@@ -110,3 +111,19 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 container is to store in many cases a key value pairs.
+
+let's define newsletter in it
+
+```php
+public function register()
+{
+    
+    app()->bind(Newsletter::class, function() {
+        return new Newsletter(
+            new ApiClient(),
+            'foobar'
+        )
+    })
+
+}
+```
