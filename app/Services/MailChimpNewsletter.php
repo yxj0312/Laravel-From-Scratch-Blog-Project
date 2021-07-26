@@ -4,12 +4,13 @@ namespace App\Services;
 
 use MailchimpMarketing\ApiClient;
 
-public function __construct(protected ApiClient $client)
+
+class MailChimpNewsletter implements Newsletter
 {
-    // 
-}
-class MailChimpNewsletter
-{
+    public function __construct(protected ApiClient $client)
+    {
+        // 
+    }
     public function subscribe(string $email, string $list = null)
     {
         $list ??= config('services.mailchimp.lists.subscribers');
