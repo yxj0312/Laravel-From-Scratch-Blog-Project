@@ -8,7 +8,7 @@ public function __construct(protected ApiClient $client)
 {
     // 
 }
-class Newsletter
+class MailChimpNewsletter
 {
     public function subscribe(string $email, string $list = null)
     {
