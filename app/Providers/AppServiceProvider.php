@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\MailChimpNewsletter;
 use App\Services\Newsletter;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
                 'server' => 'us6'
             ]);
 
-            return new Newsletter($client);
+            return new MailChimpNewsletter($client);
         });
     }
 
