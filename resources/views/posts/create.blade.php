@@ -5,7 +5,7 @@
         </h1>
 
         <x-panel>
-            <form method="POST" action="/admin/posts">
+            <form method="POST" action="/admin/posts" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">
