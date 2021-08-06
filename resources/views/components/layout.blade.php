@@ -38,7 +38,10 @@
                         </x-slot>
 
                         <x-dropdown-item href="/admin/post/create">
-
+                            New Post
+                        </x-dropdown-item>
+                        <x-dropdown-item href="/admin/post/create">
+                            New Post
                         </x-dropdown-item>
                     </x-dropdown>
 
