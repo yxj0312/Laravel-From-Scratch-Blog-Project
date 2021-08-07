@@ -38,9 +38,9 @@
                         </x-slot>
 
                         <x-dropdown-item href="/admin/post/create">
-                            New Post
+                            Dashboard
                         </x-dropdown-item>
-                        <x-dropdown-item href="/admin/post/create">
+                        <x-dropdown-item href="/admin/post/create" :active="request()->is('admin/post/create')">
                             New Post
                         </x-dropdown-item>
                     </x-dropdown>
