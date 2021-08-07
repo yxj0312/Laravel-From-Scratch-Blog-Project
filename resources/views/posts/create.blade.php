@@ -1,4 +1,6 @@
 <x-layout>
+    <x-setting heading="Publish New Post"></x-setting>
+
     <section class="py-8 max-w-md mx-auto">
         <h1 class="text-lg font-bold mb-4">
             Publish New Post
