@@ -33,7 +33,7 @@ class PostController extends Controller
         // if (auth()->user()?->username !== 'JeffreyWay') {
         //     abort(Response::HTTP_FORBIDDEN);
         // }
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     public function store()
