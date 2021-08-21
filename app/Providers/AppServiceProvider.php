@@ -37,5 +37,14 @@ class AppServiceProvider extends ServiceProvider
     {
         // Paginator::useBootstrap()
         Model::unguard();
+
+
+        Gate::define('admin', function (User $user) {
+            return $user->username === 'JeffreyWay';
+        });
+
+        Blade::if('admin', function () {
+            return request()->user()?->can('admin');
+        });
     }
 }
