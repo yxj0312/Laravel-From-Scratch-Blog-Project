@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Services\MailChimpNewsletter;
 use App\Services\Newsletter;
 use Illuminate\Contracts\Pagination\Paginator;
