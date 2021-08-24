@@ -47,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::if('admin', function () {
+            // check if we have a user first
+            // then check if this user is an admin
             return request()->user()?->can('admin');
         });
     }
